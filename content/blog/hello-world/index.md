@@ -4,7 +4,7 @@ date: "2019-06-07"
 description: Welcome to Matcha and Mochi.
 ---
 
-![Giulietta](./giulietta.jpeg)
+![Giulietta](./giulietta.jpg)
 
 Welcome to Matcha & Mochi
 

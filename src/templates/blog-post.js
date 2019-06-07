@@ -17,10 +17,13 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <h1>{post.frontmatter.title}</h1>
+        <h1 style={{
+            textAlign: 'center',
+          }}
+        >{post.frontmatter.title}</h1>
         <p
           style={{
-            display: `block`,
+            textAlign: 'center',
           }}
         >
           {post.frontmatter.date}
