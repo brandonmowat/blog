@@ -7,8 +7,7 @@
 
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
-
+import "./bio.css"
 
 function Bio() {
   return (
@@ -18,22 +17,8 @@ function Bio() {
         const { author, social } = data.site.siteMetadata
         return (
           <div
-            style={{
-              display: `flex`,
-            }}
+            className="Bio"
           >
-            {/* <Image
-              fixed={data.avatar.childImageSharp.fixed}
-              alt={author}
-              style={{
-                marginBottom: 0,
-                minWidth: 50,
-                borderRadius: `100%`,
-              }}
-              imgStyle={{
-                borderRadius: `50%`,
-              }}
-            /> */}
             <p>
               Written by <strong>{author}</strong> who lives and works at Ada in Toronto -- building useful things.
               {` `}

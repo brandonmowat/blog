@@ -1,10 +1,12 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import "../components/layout.css"
 import "./pages.css"
 
 class BlogIndex extends React.Component {
@@ -21,24 +23,23 @@ class BlogIndex extends React.Component {
         />
         <Bio />
         {posts.map(({ node }) => {
+          console.log(node)
+          const imageWidth = node.frontmatter.thumbnail.childImageSharp.fluid.aspectRatio * 400;
           const title = node.frontmatter.title || node.fields.slug
           return (
-            <div key={node.fields.slug}>
+            <Link className="Post" to={node.fields.slug}>
               <h3
                 style={{
                 }}
               >
-                <Link className="PostTitle" to={node.fields.slug}>
-                {node.frontmatter.date} | {title}
-                </Link>
+                {title}
               </h3>
-              <small>{node.frontmatter.date}</small>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </div>
+              <div className="Post__date">{node.frontmatter.date}</div>
+              <Img
+                imgStyle={{maxHeight: "100%", maxWidth: "100%", height: "auto", width: "auto"}}
+                style={{height: 400, width: imageWidth, margin: 'auto'}}
+                fluid={node.frontmatter.thumbnail.childImageSharp.fluid} alt="" />
+            </Link>
           )
         })}
       </Layout>
@@ -66,6 +67,13 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            thumbnail {
+              childImageSharp{
+                fluid(maxWidth: 400) {
+                  ...GatsbyImageSharpFluid_noBase64
+                }
+              }
+            }
           }
         }
       }

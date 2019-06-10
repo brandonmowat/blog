@@ -5,6 +5,8 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import "./blog-post.css"
+
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
@@ -17,10 +19,10 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <h1 style={{
+        <h2 style={{
             textAlign: 'center',
           }}
-        >{post.frontmatter.title}</h1>
+        >{post.frontmatter.title}</h2>
         <p
           style={{
             textAlign: 'center',

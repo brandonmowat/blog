@@ -1,12 +1,49 @@
-main {
+
+h1 {
+  font-size: 40px;
+  color: #333;
+  margin-bottom: 0;
 }
 
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+/* Header */
 header {
-  margin-top: 4em !important;
+  display: flex;
+  justify-content: center;
+  height: 140px;
   text-align: center;
+  margin-bottom: 1.666rem !important;
+}
+.header-content {
+  padding: 16px 0 0;
+}
+.header-content--bottom {
+  align-self: flex-end;
+}
+.header-content--top {
+  align-self: flex-start;
+}
+
+/* Footer */
+footer { 
+  text-align: center;
+  margin: 32px auto !important;
 }
 
 .container {
   margin: auto;
   max-width: 640px;
+}
+
+main p {
+  font-size: 20px;
 }
