@@ -23,8 +23,14 @@ class BlogIndex extends React.Component {
         />
         <Bio />
         {posts.map(({ node }) => {
-          console.log(node)
-          const imageWidth = node.frontmatter.thumbnail.childImageSharp.fluid.aspectRatio * 400;
+
+          // omit post if labeled a draft in production
+          if (
+            !(process.env.NODE_ENV === "development") &&
+            node.frontmatter.isDraft) return;
+
+          const thumbnail = node.frontmatter.thumbnail
+          const imageWidth = thumbnail && thumbnail.childImageSharp.fluid.aspectRatio * 400;
           const title = node.frontmatter.title || node.fields.slug
           return (
             <Link className="Post" to={node.fields.slug}>
@@ -35,10 +41,10 @@ class BlogIndex extends React.Component {
                 {title}
               </h3>
               <div className="Post__date">{node.frontmatter.date}</div>
-              <Img
+              {thumbnail && <Img
                 imgStyle={{maxHeight: "100%", maxWidth: "100%", height: "auto", width: "auto"}}
                 style={{height: 400, width: imageWidth, margin: 'auto'}}
-                fluid={node.frontmatter.thumbnail.childImageSharp.fluid} alt="" />
+                fluid={node.frontmatter.thumbnail.childImageSharp.fluid} alt="" />}
             </Link>
           )
         })}
@@ -74,6 +80,8 @@ export const pageQuery = graphql`
                 }
               }
             }
+            tags
+            isDraft
           }
         }
       }
