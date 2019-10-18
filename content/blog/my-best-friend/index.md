@@ -1,5 +1,5 @@
 ---
-isDraft: true
+isDraft: false
 title: My Best Friend
 date: "2019-10-18"
 description: Today I let go of my best friend.
