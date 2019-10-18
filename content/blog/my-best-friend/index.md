@@ -11,8 +11,11 @@ tags: ""
   <img src="/static/e4350b2524a212f7e155563b55abe8ab/692dc/chloe.jpg"/>
 </div>
 
-Today was one of the hardest days I've ever had to deal with — I said goodbye to my best friend, Chloe.
-She was the most excited, affectionate, and loyal dog that I've ever had the pleasure of being with.
+Today was one of the hardest days I've ever had to deal with; I said goodbye to my best friend, Chloe.
+Chloe is a dog — but not just a dog, she's part of my family. She was there for nearly every major event or period of my life.
+She was the most excited, affectionate, and loyal dog that I've ever had the pleasure of being with. She was 2 months shy (to the day) of her 15th birthday. We said goodbye to her today.
+
+The most foreign of all my experiences today was leaving the Vet clinic. We walked in as a family of 6 and left as a family of 5. She was my parent's 4th child. The car ride home was quiet. The silence only being broken by sniffles. The car felt empty, or at least more empty.
 
 There's something particularly tragic about a pet companion passing away.
 They're entirely innocent and their love is unconditional.
@@ -28,13 +31,11 @@ The children were tasked with deciding which one we wanted to take home. How is 
 I think it may have been overwhelming to me at the time because I ended up sitting over to the side, up against the gate, watching my brother and sister play with the 2 month old puppies.
 
 They were all the same to me — all were cute and varied slightly, but otherwise all equal. I sat watching, waiting for my siblings to choose for the three of us. Then one of the pups waddled over to me, sleepy and looking for a warm spot to fall asleep. My legs were crossed and she crawled into my lap, curled up and I pet her until she fell asleep.
-My mind was made up. She took the burden off my shoulders.
+My mind was made up. She took the burden of making the impossible choice off my shoulders.
 
 She chose us.
 
 ---
-
-I could go on and on about all the fond memories I have of her. Throwing a stick as far as humanly possible, watching her calculate where it was going to fall as she sprinted towards that exact spot. Seeing her paws dangling over the edge of the deck at the cottage as she watched over the family; she was our protector. Having her help open presents on Christmas morning.
 
 <div class="image-wrapper">
   <img src="/static/chloe.GIF"/>
