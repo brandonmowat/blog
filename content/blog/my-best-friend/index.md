@@ -37,13 +37,13 @@ She chose us.
 
 ---
 
-<div class="image-wrapper">
-  <img src="/static/chloe.GIF"/>
-</div>
-
 Although sometimes they may annoy you, whine, bark, meow, hell they even shit on your nice carpet (and it's never the same after).
 And despite all these things, you see them as the pinnacle of perfection. 
 You compare their love to that of a pertner; which ends up being unfair to your partner, because at the end of the day, you know who you're going to choose over the other.
 
 I keep wondering how I could ever have another dog in my life. How could any dog ever compare to the experience I had with Chloe? Maybe it's more of a rhetorical question.
 Maybe the answer is that all the other experiences will be entirely independent of each other. Right now it doesn't feel that way.
+
+<div class="image-wrapper">
+  <img src="/static/chloe-snoot.jpg"/>
+</div>
