@@ -45,5 +45,5 @@ I keep wondering how I could ever have another dog in my life. How could any dog
 Maybe the answer is that all the other experiences will be entirely independent of each other. Right now it doesn't feel that way.
 
 <div class="image-wrapper">
-  <img src="/static/chloe-snoot.jpg"/>
+  <img src="../../chloe-snoot.jpg"/>
 </div>
