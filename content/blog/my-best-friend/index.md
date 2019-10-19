@@ -1,6 +1,6 @@
 ---
 isDraft: false
-title: My Best Friend
+title: Chloe
 date: "2019-10-18"
 description: Today I let go of my best friend.
 thumbnail: "./chloe.jpg"
