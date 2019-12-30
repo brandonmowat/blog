@@ -27,7 +27,7 @@ const Layout = (props) => {
   } else {
     header = (
       <div className="header-content header-content--top">
-        <h3>
+        <div className="blog-title">
           <Link
             style={{
               boxShadow: 'none',
@@ -38,7 +38,7 @@ const Layout = (props) => {
           >
             {title}
           </Link>
-        </h3>
+        </div>
       </div>
     );
   }
