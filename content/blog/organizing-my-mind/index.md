@@ -23,7 +23,7 @@ One of the main reasons I built this blog was because I felt overwhelmed and sca
 
 Some first steps that I took was to get on a more regular sleep schedule and actively spend less time on my phone. These were things that were intuitive but I still felt like I was missing the guidance of an expert on the topic. Then on a Sunday afternoon in November, while browsing the non-fiction section of a book store with a few friends, the cover of [The Organized Mind](https://www.goodreads.com/book/show/18693669-the-organized-mind) jumped out at me.
 
-I've since finished the book and have found it incredibly helpful in both my personal and professional life. Throughout my reading I took notes on things that felt particularly applicable to my situation. I'd like to share some of my learnings and maybe help you be able to "think straight" when so many people and things are calling for our attention.
+I've since finished the book and have found it incredibly helpful in both my personal and professional life. Throughout my reading, I took notes on things that felt particularly applicable to my situation. I'd like to share some of my learnings and maybe help you be able to "think straight" when so many people and things are calling for our attention.
 
 ### Some Background Knowledge
 
