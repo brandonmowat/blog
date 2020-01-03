@@ -1,5 +1,5 @@
 .image-wrapper {
-  width: 600px;
+  max-width: 600px;
   height: 600px;
   text-align: center;
   margin: 1.888rem auto;
