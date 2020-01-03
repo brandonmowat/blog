@@ -1,5 +1,5 @@
 ---
-isDraft: true
+isDraft: false
 title: Organizing my Mind
 date: "2020-01-02"
 description: How does one get back to a world of deep focus?
