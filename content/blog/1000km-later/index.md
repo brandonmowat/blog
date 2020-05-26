@@ -1,8 +1,8 @@
 ---
 isDraft: true
-title: Trying something new...
-date: "2020-24-05"
-description: Welcome to Matcha and Mochi.
+title: 1000km later...
+date: "2020-05-24"
+description: I ran 1000 kilometres, this is what it taught me.
 tags: ""
 thumbnail: "./neo.jpg"
 ---
