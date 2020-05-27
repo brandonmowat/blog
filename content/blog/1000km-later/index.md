@@ -4,8 +4,10 @@ title: 1000km later...
 date: "2020-05-24"
 description: I ran 1000 kilometres, this is what it taught me.
 tags: ""
-thumbnail: "./neo.jpg"
+thumbnail: "https://user-images.githubusercontent.com/5758214/83021885-ac524500-9ff8-11ea-827b-94e70c099d2d.jpeg"
 ---
+
+<div class="image-wrapper"><img src="https://user-images.githubusercontent.com/5758214/83021885-ac524500-9ff8-11ea-827b-94e70c099d2d.jpeg"/></div>
 
 Most people that I talk to hate running; I know I did a few years ago when i started. I tell those people this: "No one gets up one day and decides they love to run -- it's like wine, beer, and coffee; it's an acquired taste." It's something that you grow into, or rather grows onto you. It becomes something that you look forward to and gives you energy rather than depleting it.
 
