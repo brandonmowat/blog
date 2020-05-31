@@ -3,7 +3,7 @@ isDraft: false
 title: Some thoughts after running 1000km
 date: "2020-05-30"
 description: I ran 1000 kilometres, here are some thoughts.
-tags: "running,run,marathon"
+tags: "running, run, marathon"
 thumbnail: "https://user-images.githubusercontent.com/5758214/83021885-ac524500-9ff8-11ea-827b-94e70c099d2d.jpeg"
 ---
 
