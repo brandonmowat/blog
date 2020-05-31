@@ -1,7 +1,7 @@
 ---
 isDraft: false
 title: Some thoughts after running 1000km
-date: "2020-05-24"
+date: "2020-05-30"
 description: I ran 1000 kilometres, here are some thoughts.
 tags: "running,run,marathon"
 thumbnail: "https://user-images.githubusercontent.com/5758214/83021885-ac524500-9ff8-11ea-827b-94e70c099d2d.jpeg"
@@ -19,7 +19,7 @@ Below, you can see my progression over time. My average pace got faster and the 
  
   <img src="https://user-images.githubusercontent.com/5758214/82937980-174f3d80-9f5f-11ea-8d50-1f60732d4279.jpeg"/>
 
-A year and a half later I ran my first full marathon, and today I passed the 1000km mark. Finishing that first marathon felt very symbolic, like I had finally conquered the problems that had initially drove me to running in the first place. As I reflect on running 1000km, something that I had never thought I could do, I think about all that has happened during that time. Heartbreak, saying goodbye to my dog, the current COVID-19 pandemic; through all of these I ran. It kept me sane while I wrestled with complicated emotions and tried to plan my next step.
+A year and a half later I ran my first full marathon, and a few days ago I passed the 1000km mark. Finishing that first marathon felt very symbolic, like I had finally conquered the problems that had initially drove me to running in the first place. As I reflect on running 1000km, something that I had never thought I could do, I think about all that has happened during that time. Heartbreak, saying goodbye to my dog, the current COVID-19 pandemic; through all of these I ran. It kept me sane while I wrestled with complicated emotions and tried to plan my next step.
 
 There's something beautiful about running. It's a sport/activity that's very attainable -- it requires little to no cost to start. You can run fast or you can run far, but the only thing keeping you from being better than the person next to you is pushing more and working harder. You don't have to be the smartest, tallest, biggest, most beautiful, richest; you just have to want it more. This sort of mentality has come in handy when I think about how I go about life.
 
