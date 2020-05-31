@@ -4,10 +4,8 @@ title: Some thoughts after running 1000km
 date: "2020-05-30"
 description: I ran 1000 kilometres, here are some thoughts.
 tags: "running, run, marathon"
-thumbnail: "https://user-images.githubusercontent.com/5758214/83021885-ac524500-9ff8-11ea-827b-94e70c099d2d.jpeg"
+thumbnail: ""
 ---
-
-<div class="image-wrapper"><img src="https://user-images.githubusercontent.com/5758214/83021885-ac524500-9ff8-11ea-827b-94e70c099d2d.jpeg"/></div>
 
 Most people that I talk to hate running; I know I did a few years ago when I started. I tell those people this: "No one gets up one day and decides they love to run -- it's like wine, beer, and coffee; it's an acquired taste." It's something that you grow into, or rather grows onto you. It becomes something that you look forward to and gives you energy rather than depleting it.
 
