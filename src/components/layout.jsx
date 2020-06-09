@@ -1,56 +1,54 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import './layout.css';
+import React from "react"
+import { Link } from "gatsby"
+import "./layout.css"
 
-const Layout = (props) => {
-  const { location, title, children } = props;
-  const rootPath = `${__PATH_PREFIX__}/`;
-  let header;
+const Layout = props => {
+  const { location, title, children } = props
+  const rootPath = `${__PATH_PREFIX__}/`
+  let header
 
   if (location.pathname === rootPath) {
     header = (
-      <div className="header-content header-content--bottom">
+      <div className="header-content">
         <h1>
           <Link
             style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
+              boxShadow: "none",
+              textDecoration: "none",
+              color: "inherit",
             }}
             to="/"
           >
-            {title}
+            <img src="../../MM.png" />
           </Link>
         </h1>
       </div>
-    );
+    )
   } else {
     header = (
-      <div className="header-content header-content--top">
+      <div className="header-content">
         <div className="blog-title">
           <Link
             style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
+              boxShadow: "none",
+              textDecoration: "none",
+              color: "inherit",
             }}
             to="/"
           >
-            {title}
+            <img src="../../MM.png" />
           </Link>
         </div>
       </div>
-    );
+    )
   }
   return (
     <div>
       <header className="container">{header}</header>
       <main className="container">{children}</main>
-      <footer className="container">
-          made with craft
-      </footer>
+      <footer className="container">made from scratch</footer>
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout
