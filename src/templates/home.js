@@ -23,10 +23,10 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location="/" title="Macha & Mochi">
-        <SEO
+        {/* <SEO
           title="All posts"
           keywords={["blog", "gatsby", "javascript", "react"]}
-        />
+        /> */}
         <Bio />
         {articles.map(article => {
           // omit post if labeled a draft in production
