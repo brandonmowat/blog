@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { Link } from 'gatsby';
 
 import Bio from '../components/bio';
 import Layout from '../components/layout';
@@ -8,39 +8,35 @@ import SEO from '../components/seo';
 import './blog-post.css';
 
 const BlogPostTemplate = (props) => {
-  const post = props.data.markdownRemark;
-  const siteTitle = props.data.site.siteMetadata.title;
-  const { previous, next } = props.pageContext;
-
-  console.log(props.pageContext);
+  const { article } = props.pageContext;
 
   return (
-    <Layout location={props.location} title={siteTitle}>
-      <SEO
+    <Layout location={props.location} title="Matcha & Mochi">
+      {/* <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
-      />
+      /> */}
       <h2 style={{
         textAlign: 'center',
       }}
       >
-        {post.frontmatter.title}
+        {article.title}
       </h2>
       <p
         style={{
           textAlign: 'center',
         }}
       >
-        {post.frontmatter.date}
+        {new Date(article.created).toDateString()}
       </p>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <div dangerouslySetInnerHTML={{ __html: article.body }} />
       <hr
         style={{
         }}
       />
       <Bio />
 
-      <ul
+      {/* <ul
         style={{
           display: 'flex',
           flexWrap: 'wrap',
@@ -67,30 +63,9 @@ const BlogPostTemplate = (props) => {
           </Link>
           )}
         </li>
-      </ul>
+      </ul> */}
     </Layout>
   );
 };
 
 export default BlogPostTemplate;
-
-export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-        description
-      }
-    }
-  }
-`;

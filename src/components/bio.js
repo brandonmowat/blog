@@ -5,52 +5,27 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React from "react"
-import { StaticQuery, graphql } from "gatsby"
-import "./bio.css"
+import React from 'react';
+import './bio.css';
 
 function Bio() {
   return (
-    <StaticQuery
-      query={bioQuery}
-      render={data => {
-        const { author, social } = data.site.siteMetadata
-        return (
-          <div
-            className="Bio"
-          >
-            <p>
-              Written by <strong>{author}</strong> who lives and works at Ada in Toronto -- building useful things.
-              {` `}
-              <a href={`https://twitter.com/${social.twitter}`}>
+    <div
+      className="Bio"
+    >
+      <p>
+              Written by
+        {' '}
+        <strong>Brandon Mowat</strong>
+        {' '}
+who lives and works at Ada in Toronto -- building useful things.
+        {' '}
+        <a href="https://twitter.com/brandonmowat">
                 You should follow him on Twitter
-              </a>
-            </p>
-          </div>
-        )
-      }}
-    />
-  )
+        </a>
+      </p>
+    </div>
+  );
 }
 
-const bioQuery = graphql`
-  query BioQuery {
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-      childImageSharp {
-        fixed(width: 50, height: 50) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    site {
-      siteMetadata {
-        author
-        social {
-          twitter
-        }
-      }
-    }
-  }
-`
-
-export default Bio
+export default Bio;
