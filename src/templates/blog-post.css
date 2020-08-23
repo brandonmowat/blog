@@ -13,5 +13,14 @@
 
 blockquote {
   font-style: italic;
-  color: #4e4e58
+  color: #4e4e58;
+}
+
+main p {
+  font-size: 19px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+main h2 {
+  margin-top: 2.666rem;
 }

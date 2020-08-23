@@ -9,7 +9,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
   // Create a page that lists all Articles
   createPage({
     path: "/",
-    component: require.resolve("./src/templates/home.js"),
+    component: require.resolve("./src/templates/home.jsx"),
     context: { articles },
   })
 

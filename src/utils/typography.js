@@ -1,15 +1,12 @@
-import Typography from "typography"
+import Typography from 'typography';
 
 const typography = new Typography({
-  baseFontSize: "18px",
+  baseFontSize: '18px',
   baseLineHeight: 1.666,
-  headerFontFamily: [
-    "Georgia",
-    "serif"
-  ],
+  headerFontFamily: ['-apple-system', 'BlinkMacSystemFont'],
   headerWeight: 400,
-  bodyFontFamily: ["Georgia", "serif"],
+  bodyFontFamily: ['-apple-system', 'BlinkMacSystemFont'],
   bodyWeight: 400,
-})
+});
 
-export default typography
+export default typography;

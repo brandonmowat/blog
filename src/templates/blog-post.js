@@ -7,7 +7,7 @@ import SEO from '../components/seo';
 
 import './blog-post.css';
 
-const BlogPostTemplate = (props) => {
+const BlogPostTemplate = props => {
   const { article } = props.pageContext;
 
   return (
@@ -16,12 +16,13 @@ const BlogPostTemplate = (props) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       /> */}
-      <h2 style={{
-        textAlign: 'center',
-      }}
+      <h1
+        style={{
+          textAlign: 'center',
+        }}
       >
         {article.title}
-      </h2>
+      </h1>
       <p
         style={{
           textAlign: 'center',
@@ -30,10 +31,7 @@ const BlogPostTemplate = (props) => {
         {new Date(article.created).toDateString()}
       </p>
       <div dangerouslySetInnerHTML={{ __html: article.body }} />
-      <hr
-        style={{
-        }}
-      />
+      <hr style={{}} />
       <Bio />
 
       {/* <ul

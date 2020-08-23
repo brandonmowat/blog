@@ -1,13 +1,12 @@
 html,
 body {
+  font-family: -apple-system, BlinkMacSystemFont;
   background-color: #fffffa;
 }
 
 h1 {
   font-size: 40px;
   color: #222;
-  margin-bottom: 0;
-  width: 400px;
 }
 
 h2 {
@@ -20,19 +19,23 @@ h4 {
 }
 
 h3 {
-  font-size: 26px;
+  font-size: 32px;
+  font-weight: 300;
 }
 
 h4 {
   font-size: 22px;
 }
 
+h5 {
+  font-weight: 300;
+}
+
 /* Header */
 header {
   display: flex;
-  justify-content: center;
-  height: 140px;
-  text-align: center;
+  /* justify-content: center; */
+  /* text-align: center; */
   margin-bottom: 1.666rem !important;
 }
 header .blog-title {
@@ -40,7 +43,11 @@ header .blog-title {
   color: #333;
 }
 header .blog-title img {
-  width: 400px;
+  width: 300px;
+  margin-bottom: 0;
+}
+header .description {
+  font-size: 14px;
 }
 .header-content {
   padding: 64px 0 0;
@@ -59,12 +66,20 @@ footer {
 }
 
 .container {
-  margin: auto;
-  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 800px;
   padding-left: 10px;
   padding-right: 10px;
 }
 
-main p {
-  font-size: 18px;
+/* Column things */
+.row {
+  display: flex;
+}
+.col-2 {
+  flex: 2;
+}
+.col-4 {
+  flex: 4;
 }

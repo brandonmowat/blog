@@ -1,11 +1,17 @@
-
 .Post {
   color: #333;
-  margin-bottom: 60px;
-  text-align: center;
+  margin-bottom: 8px;
   display: block;
   text-decoration: none;
   z-index: 10;
+}
+
+.Post__date {
+  font-size: large;
+}
+
+.Post:hover {
+  text-decoration: underline;
 }
 
 .Post h3 {
@@ -14,4 +20,24 @@
 
 .Post__date {
   margin: 4px 0;
+}
+
+.FeaturedArticle {
+  margin-bottom: 60px;
+}
+.FeaturedArticle h3 {
+  font-size: 50px;
+}
+.FeaturedArticle h5 {
+  font-size: 30px;
+}
+.FeaturedArticle__date {
+  font-size: larger;
+  margin-top: 8px;
+}
+
+.LatestPostLabel {
+  background: #111;
+  color: #fffffa;
+  padding: 0 8px;
 }

@@ -26,7 +26,7 @@ const Layout = props => {
     )
   } else {
     header = (
-      <div className="header-content">
+      <div className="container header-content">
         <div className="blog-title">
           <Link
             style={{
@@ -39,12 +39,13 @@ const Layout = props => {
             <img src="../../MM.png" />
           </Link>
         </div>
+        <h3 className="description">a blog written by Brandon Mowat</h3>
       </div>
     )
   }
   return (
     <div>
-      <header className="container">{header}</header>
+      <header>{header}</header>
       <main className="container">{children}</main>
       <footer className="container">made from scratch</footer>
     </div>
