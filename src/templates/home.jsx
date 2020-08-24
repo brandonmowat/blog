@@ -15,16 +15,15 @@ const BlogIndex = props => {
   const { pageContext } = props;
   const { articles } = pageContext;
 
-  let _articles;
+  articles.sort((a, b) => new Date(a.created) < new Date(b.created));
 
-  // omit post if labeled a draft in production
-  if (!(process.env.NODE_ENV === 'development')) {
-    _articles = articles.filter(article => article.isPublished);
+  if (!articles) {
+    return <div>no posts</div>;
   }
 
-  const firstArticle = _articles[0];
+  const firstArticle = articles[0];
 
-  _articles = _articles.slice(1);
+  const restArticles = articles.slice(1);
 
   return (
     <Layout location="/" title="Macha & Mochi">
@@ -65,7 +64,7 @@ const BlogIndex = props => {
         <span>Older Posts</span>
       </div>
 
-      {_articles.map(article => (
+      {restArticles.map(article => (
         <Link className="Post" to={`article/${article.id}`}>
           <div className="row">
             <div className="col-2">

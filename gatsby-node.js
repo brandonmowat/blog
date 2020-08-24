@@ -6,19 +6,24 @@ const get = endpoint =>
 exports.createPages = async ({ actions: { createPage } }) => {
   const { data: articles } = await get('articles/');
 
-  const sortedArticles = articles.sort(
-    (a, b) => new Date(a.created) < new Date(b.created)
-  );
+  let publishedArticles = articles;
+
+  // omit post if labeled a draft in production
+  if (!(process.env.NODE_ENV === 'development')) {
+    publishedArticles = publishedArticles.filter(
+      article => article.isPublished
+    );
+  }
 
   // Create a page that lists all Articles
   createPage({
     path: '/',
     component: require.resolve('./src/templates/home.jsx'),
-    context: { sortedArticles },
+    context: { articles: publishedArticles },
   });
 
   // // Create a page for each Pokémon.
-  sortedArticles.forEach(article => {
+  publishedArticles.forEach(article => {
     // console.log(article)
     createPage({
       path: `/article/${article.id}/`,
