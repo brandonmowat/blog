@@ -14,12 +14,15 @@ import './pages.css';
 const BlogIndex = props => {
   const { pageContext } = props;
   const { articles } = pageContext;
+  console.log(111, articles);
 
   articles.sort((a, b) => new Date(a.created) < new Date(b.created));
 
   if (!articles) {
     return <div>no posts</div>;
   }
+
+  console.log(222, articles);
 
   const firstArticle = articles[0];
 
