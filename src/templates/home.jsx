@@ -30,10 +30,18 @@ const BlogIndex = props => {
 
   return (
     <Layout location="/" title="Macha & Mochi">
-      {/* <SEO
-          title="All posts"
-          keywords={["blog", "gatsby", "javascript", "react"]}
-        /> */}
+      <SEO
+        title="All posts"
+        keywords={[
+          'blog',
+          'gatsby',
+          'javascript',
+          'react',
+          'running',
+          'matcha',
+          'mochi',
+        ]}
+      />
       {/* <Bio /> */}
       <div className="row">
         <span className="LatestPostLabel">Latest Post</span>

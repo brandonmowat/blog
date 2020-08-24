@@ -12,10 +12,11 @@ const BlogPostTemplate = props => {
 
   return (
     <Layout location={props.location} title="Matcha & Mochi">
-      {/* <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      /> */}
+      <SEO
+        title={article.title}
+        description={article.description}
+        tags={article.tags}
+      />
       <h1
         style={{
           textAlign: 'center',
