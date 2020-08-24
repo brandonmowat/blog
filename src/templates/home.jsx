@@ -15,9 +15,7 @@ const BlogIndex = props => {
   const { pageContext } = props;
   const { articles } = pageContext;
 
-  let _articles = articles.sort(
-    (a, b) => new Date(a.created) < new Date(b.created)
-  );
+  let _articles;
 
   // omit post if labeled a draft in production
   if (!(process.env.NODE_ENV === 'development')) {
