@@ -24,3 +24,8 @@ main p {
 main h2 {
   margin-top: 2.666rem;
 }
+
+pre {
+  background-color: #ddd;
+  padding: 1em;
+}
