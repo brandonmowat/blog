@@ -16,6 +16,7 @@
 
 .Post h3 {
   color: #111;
+  margin-bottom: 1rem;
 }
 
 .Post__date {
@@ -27,6 +28,7 @@
 }
 .FeaturedArticle h3 {
   font-size: 50px;
+  margin-bottom: 1.666rem;
 }
 .FeaturedArticle h5 {
   font-size: 30px;
