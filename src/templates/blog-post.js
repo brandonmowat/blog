@@ -29,7 +29,7 @@ const BlogPostTemplate = props => {
           textAlign: 'center',
         }}
       >
-        {new Date(article.created).toDateString()}
+        {new Date(article.publishedDate || article.created).toDateString()}
       </p>
       <div dangerouslySetInnerHTML={{ __html: article.body }} />
       <hr style={{}} />

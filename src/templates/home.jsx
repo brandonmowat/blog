@@ -14,7 +14,7 @@ import './pages.css';
 const BlogIndex = props => {
   const { pageContext } = props;
   const { articles } = pageContext;
-  articles.sort((a, b) => (new Date(a.created) < new Date(b.created) ? 1 : -1));
+  articles.sort((a, b) => (new Date(a.publishedDate || a.created) < new Date(b.publishedDate || b.created) ? 1 : -1));
 
   if (!articles) {
     return <div>no posts</div>;
@@ -48,7 +48,7 @@ const BlogIndex = props => {
           <div className="row">
             <div className="col-2">
               <h5 className="FeaturedArticle__date">
-                {new Date(firstArticle.created).toDateString()}
+                {new Date(firstArticle.publishedDate || firstArticle.created).toDateString()}
               </h5>
             </div>
             <div className="col-4">
@@ -68,7 +68,7 @@ const BlogIndex = props => {
           <div className="row">
             <div className="col-2">
               <h5 className="Post__date">
-                {new Date(article.created).toDateString()}
+                {new Date(article.publishedDate || article.created).toDateString()}
               </h5>
             </div>
             <div className="col-4">
