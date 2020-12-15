@@ -26,7 +26,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
   publishedArticles.forEach(article => {
     // console.log(article)
     createPage({
-      path: `/article/${article.id}/`,
+      path: `/article/${article._id}/`,
       component: require.resolve('./src/templates/blog-post.js'),
       context: { article },
     });

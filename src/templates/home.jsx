@@ -43,7 +43,7 @@ const BlogIndex = props => {
         <span className="LatestPostLabel">Latest Post</span>
       </div>
 
-      <Link className="Post FeaturedArticle" to={`article/${firstArticle.id}`}>
+      <Link className="Post FeaturedArticle" to={`article/${firstArticle._id}`}>
         <section>
           <div className="row">
             <div className="col-2">
@@ -64,7 +64,7 @@ const BlogIndex = props => {
       </div>
 
       {restArticles.map(article => (
-        <Link className="Post" to={`article/${article.id}`}>
+        <Link className="Post" to={`article/${article._id}`}>
           <div className="row">
             <div className="col-2">
               <h5 className="Post__date">

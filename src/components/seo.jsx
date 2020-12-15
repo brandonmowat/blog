@@ -11,7 +11,7 @@ import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
 function SEO({
-  description, lang, meta, keywords, title,
+  description, lang, meta, title, tags
 }) {
   const { site } = useStaticQuery(
     graphql`
@@ -69,16 +69,11 @@ function SEO({
           name: 'twitter:description',
           content: metaDescription,
         },
-      ]
-        .concat(
-          keywords.length > 0
-            ? {
-              name: 'keywords',
-              content: keywords.join(', '),
-            }
-            : [],
-        )
-        .concat(meta)}
+        {
+          name: 'keywords',
+          content: tags
+        }
+      ]}
     />
   );
 }
@@ -86,7 +81,7 @@ function SEO({
 SEO.defaultProps = {
   lang: 'en',
   meta: [],
-  keywords: [],
+  tags: [],
   description: '',
 };
 
@@ -94,7 +89,7 @@ SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  keywords: PropTypes.arrayOf(PropTypes.string),
+  tags: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
 };
 

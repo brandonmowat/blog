@@ -10,6 +10,8 @@ import './blog-post.css';
 const BlogPostTemplate = props => {
   const { article } = props.pageContext;
 
+  console.log(article.tags)
+
   return (
     <Layout location={props.location} title="Matcha & Mochi">
       <SEO
