@@ -35,7 +35,7 @@ header {
   display: flex;
   /* justify-content: center; */
   /* text-align: center; */
-  margin-bottom: 1.666rem !important;
+  margin-bottom: 3.12rem !important;
 }
 header .blog-title {
   font-size: 24px;
@@ -47,15 +47,45 @@ header .blog-title img {
 }
 header .description {
   font-size: 14px;
+  margin-bottom: 0;
 }
-.header-content {
+.header {
+  display: flex;
+  justify-content: space-between;
   padding: 64px 0 0;
 }
-.header-content--bottom {
+.header--bottom {
   align-self: flex-end;
 }
-.header-content--top {
+.header--top {
   align-self: flex-start;
+}
+
+.header-content {
+  padding-top: 16px;
+}
+
+.header-content-topics {
+  display: flex;
+}
+
+.header-content-topics button {
+  margin: 4px;
+  font-size: 12px;
+  border-radius: 100px;
+  border: 2px solid #111;
+  padding: 2px 16px;
+  cursor: pointer;
+  background-color: #ddd;
+}
+
+.SearchBar {
+  border-radius: 100px;
+  border: 2px solid #111;
+  padding: 4px 8px;
+  font-size: 14px;
+  width: 100%;
+  max-width: 300px;
 }
 
 /* Footer */
