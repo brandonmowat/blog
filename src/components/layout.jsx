@@ -5,13 +5,11 @@ import "./layout.css"
 const Layout = props => {
   const { location, title, children, topicQuery, setTopicQuery } = props
 
-
   const rootPath = `${__PATH_PREFIX__}/`
 
-  console.log(rootPath, window.location.pathname)
   let header
 
-  if (window.location.pathname !== rootPath) {
+  if (window && window.location.pathname !== rootPath) {
     header = (
       <div className="container header">
         <div className="blog-title">
