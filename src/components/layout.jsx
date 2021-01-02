@@ -9,7 +9,7 @@ const Layout = props => {
 
   let header
 
-  if (window && window.location.pathname !== rootPath) {
+  if (typeof window !== "undefined" && window.location.pathname !== rootPath) {
     header = (
       <div className="container header">
         <div className="blog-title">
