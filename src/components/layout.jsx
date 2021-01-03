@@ -9,6 +9,7 @@ const Layout = props => {
 
   let header
 
+  // We need to check the type of window because netlify is stupid
   if (typeof window !== "undefined" && window.location.pathname !== rootPath) {
     header = (
       <div className="container header">
@@ -37,6 +38,7 @@ const Layout = props => {
               color: "inherit",
             }}
             to="/"
+            onClick={() => setTopicQuery("")}
           >
             <img src="../../MM.png" />
           </Link>
