@@ -22,6 +22,12 @@ exports.createPages = async ({ actions: { createPage } }) => {
     context: { articles: publishedArticles },
   });
 
+  // Create a page for logging in
+  createPage({
+    path: '/login',
+    component: require.resolve('./src/pages/login.jsx'),
+  });
+
   // // Create a page for each Pokémon.
   publishedArticles.forEach(article => {
     // console.log(article)
