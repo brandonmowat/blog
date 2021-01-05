@@ -1,69 +1,73 @@
 import axios from "axios";
 
 async function getRawArticle(articleId) {
-  const token = localStorage.getItem("token")
+  let res;
 
-  const api = axios.create({
-    withCredentials: true,
-    baseURL: "https://brandon-server.herokuapp.com/api/v1/"
-  })
+  if (typeof localStorage !== undefined) {
+    const token = localStorage.getItem("token")
 
-  const res = await api.get(`articles/${articleId}`, {
-    headers: {
-      "Authorization": `Basic ${token}`
-    }
-  })
+    const api = axios.create({
+      withCredentials: true,
+      baseURL: "https://brandon-server.herokuapp.com/api/v1/"
+    })
 
-  console.log(res)
+    res = await api.get(`articles/${articleId}`, {
+      headers: {
+        "Authorization": `Basic ${token}`
+      }
+    })
+  }
 
   return res
 }
 
 async function updateArticle(article) {
-  const token = localStorage.getItem("token")
+  let res;
 
-  const api = axios.create({
-    withCredentials: true,
-    baseURL: "https://brandon-server.herokuapp.com/api/v1/"
-  })
-  console.log(article)
+  if (typeof localStorage !== undefined) {
+    const token = localStorage.getItem("token")
 
-  const id = article._id
+    const api = axios.create({
+      withCredentials: true,
+      baseURL: "https://brandon-server.herokuapp.com/api/v1/"
+    })
 
-  // delete article._id
-  delete article.id
+    delete article.id
 
-  const res = await api.patch(`articles/${article._id}`, article, {
-    headers: {
-      "Authorization": `Basic ${token}`
-    }
-  })
+    const res = await api.patch(`articles/${article._id}`, article, {
+      headers: {
+        "Authorization": `Basic ${token}`
+      }
+    })
+  }
 
-  console.log(res)
 
   return res
 }
 
 async function createArticle(article) {
-  const token = localStorage.getItem("token")
+  let res;
 
-  const api = axios.create({
-    withCredentials: true,
-    baseURL: "https://brandon-server.herokuapp.com/api/v1/"
-  })
+  if (typeof localStorage !== undefined) {
+    const token = localStorage.getItem("token")
 
-  const res = await api.post(`articles/`, {
-    title: "About Cities",
-    description: "des",
-    body: ""
+    const api = axios.create({
+      withCredentials: true,
+      baseURL: "https://brandon-server.herokuapp.com/api/v1/"
+    })
 
-  }, {
-    headers: {
-      "Authorization": `Basic ${token}`
-    }
-  })
+    const res = await api.post(`articles/`, {
+      title: "About Cities",
+      description: "des",
+      body: ""
 
-  console.log(res)
+    }, {
+      headers: {
+        "Authorization": `Basic ${token}`
+      }
+    })
+  }
+
 
   return res
 }
