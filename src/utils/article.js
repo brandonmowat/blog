@@ -3,7 +3,7 @@ import axios from "axios";
 async function getRawArticle(articleId) {
   let res;
 
-  if (typeof localStorage !== undefined) {
+  if (typeof localStorage !== "undefined") {
     const token = localStorage.getItem("token")
 
     const api = axios.create({
@@ -24,7 +24,7 @@ async function getRawArticle(articleId) {
 async function updateArticle(article) {
   let res;
 
-  if (typeof localStorage !== undefined) {
+  if (typeof localStorage !== "undefined") {
     const token = localStorage.getItem("token")
 
     const api = axios.create({
@@ -48,7 +48,7 @@ async function updateArticle(article) {
 async function createArticle(article) {
   let res;
 
-  if (typeof localStorage !== undefined) {
+  if (typeof localStorage !== "undefined") {
     const token = localStorage.getItem("token")
 
     const api = axios.create({
