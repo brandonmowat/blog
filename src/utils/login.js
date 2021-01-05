@@ -1,9 +1,13 @@
 const isLoggedIn = () => {
-    return localStorage.getItem("token")
+    if (typeof localStorage !== undefined) {
+        return localStorage.getItem("token")
+    }
 }
 
 const logout = () => {
-    localStorage.removeItem("token")
+    if (typeof localStorage !== undefined) {
+        localStorage.removeItem("token")
+    }
 }
 
 export {isLoggedIn, logout}
