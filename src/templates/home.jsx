@@ -18,7 +18,7 @@ const BlogIndex = props => {
 
   articles.sort((a, b) => (new Date(a.publishedDate || a.created) < new Date(b.publishedDate || b.created) ? 1 : -1));
 
-  const articlesOnTopic = articles.filter(article => article.tags.includes(topicQuery))
+  const articlesOnTopic = articles.filter(article => article.tags && article.tags.includes(topicQuery))
 
   if (!articles) {
     return <div>no posts</div>;

@@ -28,10 +28,7 @@ const login = (username, password, e) => {
       localStorage.setItem("token", token)
     }    
   })
-
-  // console.log(loginRes.result.status)
 }
-// wS}zb3u'\.;}k*ZM
 
 
 const Login = props => {
