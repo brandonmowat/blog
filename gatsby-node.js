@@ -28,6 +28,11 @@ exports.createPages = async ({ actions: { createPage } }) => {
     component: require.resolve('./src/pages/login.jsx'),
   });
 
+  createPage({
+    path: '/new-post',
+    component: require.resolve('./src/pages/EditPost.jsx'),
+  });
+
   // // Create a page for each Pokémon.
   publishedArticles.forEach(article => {
     // console.log(article)

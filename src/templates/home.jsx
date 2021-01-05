@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
@@ -8,17 +8,32 @@ import Bio from '../components/bio';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
+import { getAllRawArticles } from "../utils/article";
+import { isLoggedIn } from '../utils/login';
+
 import '../components/layout.css';
 import './pages.css';
+
 
 const BlogIndex = props => {
   const [topicQuery, setTopicQuery] = useState("");
   const { pageContext } = props;
-  const { articles } = pageContext;
 
-  articles.sort((a, b) => (new Date(a.publishedDate || a.created) < new Date(b.publishedDate || b.created) ? 1 : -1));
 
-  const articlesOnTopic = articles.filter(article => article.tags && article.tags.includes(topicQuery))
+  const articlesTemp = pageContext.articles
+  articlesTemp.sort((a, b) => (new Date(a.publishedDate || a.created) < new Date(b.publishedDate || b.created) ? 1 : -1));
+  const [articles, setArticles] = useState(articlesTemp)
+
+
+  useEffect(() => {
+    if (isLoggedIn()) {
+      getAllRawArticles().then(res => {
+        const articlesTemp = res.data
+        articlesTemp.sort((a, b) => (new Date(a.publishedDate || a.created) < new Date(b.publishedDate || b.created) ? 1 : -1));
+        setArticles(articlesTemp)
+      })
+    }
+  }, []);
 
   if (!articles) {
     return <div>no posts</div>;
@@ -50,10 +65,17 @@ const BlogIndex = props => {
   );
 };
 
+const getArticleLink = (article) => {
+  if (isLoggedIn()) {
+    return `new-post?id=${article._id}`
+  }
+
+  return `article/${article._id}`;
+}
+
 const MainArticleView = props => {
 
   const { articles } = props;
-
   const firstArticle = articles[0];
   const restArticles = articles.slice(1);
 
@@ -62,7 +84,7 @@ const MainArticleView = props => {
       <span className="LatestPostLabel">Latest Post</span>
     </div>
 
-    <Link className="Post FeaturedArticle" to={`article/${firstArticle._id}`}>
+    <Link className="Post FeaturedArticle" to={getArticleLink(firstArticle)}>
       <section>
         <div className="row">
           <div className="col-2">
@@ -83,7 +105,7 @@ const MainArticleView = props => {
     </div>
 
     {restArticles.map(article => (
-      <Link className="Post" to={`article/${article._id}`}>
+      <Link className="Post" to={getArticleLink(article)}>
         <div className="row">
           <div className="col-2">
             <h5 className="Post__date">
@@ -106,7 +128,7 @@ const SearchResults = props => {
 
   return (
     articlesOnTopic.map(article => (
-      <Link className="Post" to={`article/${article._id}`}>
+      <Link className="Post" to={getArticleLink(article)}>
         <div className="row">
           <div className="col-2">
             <h5 className="Post__date">
@@ -124,11 +146,3 @@ const SearchResults = props => {
 }
 
 export default BlogIndex;
-
-// thumbnail {
-//   childImageSharp {
-//     fluid(maxWidth: 400) {
-//       ...GatsbyImageSharpFluid_noBase64
-//     }
-//   }
-// }

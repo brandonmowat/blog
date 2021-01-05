@@ -1,13 +1,25 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
+
+import { createArticle } from "../utils/article";
+import { isLoggedIn as checkUserLoggedIn, logout} from "../utils/login";
+
 import "./layout.css"
 
 const Layout = props => {
   const { location, title, children, topicQuery, setTopicQuery } = props
 
+  const isLoggedIn = checkUserLoggedIn();
+
   const rootPath = `${__PATH_PREFIX__}/`
 
   let header
+
+  const newPostHandler = () => {
+    createArticle().then(res => {
+      console.log(res)
+    })
+  }
 
   // We need to check the type of window because netlify is stupid
   if (typeof window !== "undefined" && window.location.pathname !== rootPath) {
@@ -45,6 +57,12 @@ const Layout = props => {
           <h3 className="description">a blog written by Brandon Mowat</h3>
         </div>
         <div className="header-content">
+          {isLoggedIn && (
+            <>
+            <button onClick={newPostHandler}>New Post</button>
+            <button onClick={logout}>Log Out</button>
+            </>
+          )}
           <input
             className="SearchBar"
             placeholder="Search for something..."

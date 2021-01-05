@@ -21,6 +21,27 @@ async function getRawArticle(articleId) {
   return res
 }
 
+async function getAllRawArticles() {
+  let res;
+
+  if (typeof localStorage !== "undefined") {
+    const token = localStorage.getItem("token")
+
+    const api = axios.create({
+      withCredentials: true,
+      baseURL: "https://brandon-server.herokuapp.com/api/v1/"
+    })
+
+    res = await api.get(`articles/`, {
+      headers: {
+        "Authorization": `Basic ${token}`
+      }
+    })
+  }
+
+  return res
+}
+
 async function updateArticle(article) {
   let res;
 
@@ -34,7 +55,7 @@ async function updateArticle(article) {
 
     delete article.id
 
-    const res = await api.patch(`articles/${article._id}`, article, {
+    res = await api.patch(`articles/${article._id}`, article, {
       headers: {
         "Authorization": `Basic ${token}`
       }
@@ -56,10 +77,11 @@ async function createArticle(article) {
       baseURL: "https://brandon-server.herokuapp.com/api/v1/"
     })
 
-    const res = await api.post(`articles/`, {
-      title: "About Cities",
-      description: "des",
-      body: ""
+    res = await api.post(`articles/`, {
+      title: "NEW POST",
+      description: "",
+      body: "",
+      tags: ""
 
     }, {
       headers: {
@@ -72,4 +94,26 @@ async function createArticle(article) {
   return res
 }
 
-export {updateArticle, getRawArticle, createArticle}
+async function deleteArticle(article) {
+  let res;
+
+  if (typeof localStorage !== "undefined") {
+    const token = localStorage.getItem("token")
+
+    const api = axios.create({
+      withCredentials: true,
+      baseURL: "https://brandon-server.herokuapp.com/api/v1/"
+    })
+
+    res = await api.delete(`articles/${article._id}`, {
+      headers: {
+        "Authorization": `Basic ${token}`
+      }
+    })
+  }
+
+
+  return res
+}
+
+export {updateArticle, getRawArticle, createArticle, getAllRawArticles, deleteArticle}

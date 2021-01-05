@@ -8,46 +8,78 @@ import SEO from '../components/seo';
 import { isLoggedIn as checkUserLoggedIn } from "../utils/login";
 import { getRawArticle, updateArticle, deleteArticle } from "../utils/article";
 
-import './blog-post.css';
+import '../templates/blog-post.css';
 
-const BlogPostTemplate = props => {
-  const { article } = props.pageContext;
+const EditPost = props => {
   const isLoggedIn = checkUserLoggedIn();
 
-  const [articleTitle, setArticleTitle] = useState(article.title)
-  const [articleDescription, setArticleDescription] = useState(article.description)
-  const [articleBody, setArticleBody] = useState(article.body)
+  const [article, setArticle] = useState()
+
+  const [articleTitle, setArticleTitle] = useState("")
+  const [articleDescription, setArticleDescription] = useState("")
+  const [articleBody, setArticleBody] = useState("")
+
+  const handleUpdateArticle = () => {
+    updateArticle({
+      ...article,
+      title: articleTitle,
+      body: articleBody,
+      tags: "",
+      description: articleDescription
+    })
+  }
+
+  const handleDeleteArticle = () => {
+    const isConfirm = confirm(`Are you sure you want to delete the article: "${articleTitle}"?`);
+
+    if (isConfirm) deleteArticle(article)
+  }
+
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      var urlParams = new URLSearchParams(window.location.search);
+      getRawArticle(urlParams.get("id")).then(res => {
+        setArticle(res.data)
+        setArticleBody(res.data.body)
+        setArticleDescription(res.data.description)
+        setArticleTitle(res.data.title)
+      })
+    }
+  }, [])
 
   return (
     <Layout location={props.location} title="Matcha & Mochi">
-      <SEO
-        title={article.title}
-        description={article.description}
-        tags={article.tags}
-      />
       <h1
         style={{
           textAlign: 'center',
         }}
       >
-        {article.title}
+        <ContentEditable html={articleTitle} onChange={(e) => setArticleTitle(e.target.value)} />
       </h1>
       <h3
         style={{
           textAlign: 'center',
         }}
       >
-        {article.description}
+        <ContentEditable html={articleDescription} onChange={(e) => setArticleDescription(e.target.value)} />
       </h3>
-      <p
+      {/* <p
         style={{
           textAlign: 'center',
         }}
       >
         {new Date(article.publishedDate || article.created).toDateString()}
-      </p>
+      </p> */}
 
-      <div dangerouslySetInnerHTML={{ __html: article.body }} />
+      <ContentEditable html={articleBody} onChange={(e) => setArticleBody(e.target.value)} />
+
+      {isLoggedIn &&
+        <div className="editorToolbar" >
+                <button onClick={() => handleDeleteArticle()}>Delete Article</button>
+                <button onClick={() => handleUpdateArticle()}>save</button>
+        </div>
+      }
 
       <hr style={{}} />
       <Bio />
@@ -93,4 +125,4 @@ class ContentEditable extends React.Component {
   }
 };
 
-export default BlogPostTemplate;
+export default EditPost;
