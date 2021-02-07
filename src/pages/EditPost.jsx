@@ -20,6 +20,9 @@ const EditPost = props => {
   const [articleDescription, setArticleDescription] = useState("")
   const [articleBody, setArticleBody] = useState("")
 
+  const [articleTags, setArticleTags] = useState("")
+
+
   const handleUpdateArticle = () => {
     var turndownService = new TurndownService()
     console.log(turndownService.turndown(articleBody))
@@ -27,7 +30,7 @@ const EditPost = props => {
       ...article,
       title: articleTitle,
       body: turndownService.turndown(articleBody),
-      tags: "",
+      tags: articleTags,
       description: articleDescription
     })
   }
@@ -47,6 +50,7 @@ const EditPost = props => {
         setArticleBody(res.data.body)
         setArticleDescription(res.data.description)
         setArticleTitle(res.data.title)
+        setArticleTags(res.data.tags)
       })
     }
   }, [])
@@ -67,6 +71,13 @@ const EditPost = props => {
       >
         <ContentEditable html={articleDescription} onChange={(e) => setArticleDescription(e.target.value)} />
       </h3>
+      <p
+        style={{
+          textAlign: 'center',
+        }}
+      >
+        <ContentEditable html={articleTags} onChange={(e) => setArticleTags(e.target.value)} />
+      </p>
       {/* <p
         style={{
           textAlign: 'center',
