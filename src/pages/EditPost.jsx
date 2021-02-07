@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
-import turndown from 'turndown';
+import TurndownService from 'turndown';
 
 import Bio from '../components/bio';
 import Layout from '../components/layout';
@@ -21,10 +21,11 @@ const EditPost = props => {
   const [articleBody, setArticleBody] = useState("")
 
   const handleUpdateArticle = () => {
+    var turndownService = new TurndownService()
     updateArticle({
       ...article,
       title: articleTitle,
-      body: turndown(articleBody),
+      body: turndownService.turndown(articleBody),
       tags: "",
       description: articleDescription
     })
