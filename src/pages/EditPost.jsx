@@ -22,6 +22,7 @@ const EditPost = props => {
 
   const handleUpdateArticle = () => {
     var turndownService = new TurndownService()
+    console.log(turndownService.turndown(articleBody))
     updateArticle({
       ...article,
       title: articleTitle,
