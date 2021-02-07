@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
+import turndown from 'turndown';
 
 import Bio from '../components/bio';
 import Layout from '../components/layout';
@@ -23,7 +24,7 @@ const EditPost = props => {
     updateArticle({
       ...article,
       title: articleTitle,
-      body: articleBody,
+      body: turndown(articleBody),
       tags: "",
       description: articleDescription
     })
@@ -76,8 +77,8 @@ const EditPost = props => {
 
       {isLoggedIn &&
         <div className="editorToolbar" >
-                <button onClick={() => handleDeleteArticle()}>Delete Article</button>
-                <button onClick={() => handleUpdateArticle()}>save</button>
+          <button onClick={() => handleDeleteArticle()}>Delete Article</button>
+          <button onClick={() => handleUpdateArticle()}>save</button>
         </div>
       }
 
