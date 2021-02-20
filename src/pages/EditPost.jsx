@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'gatsby';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'gatsby'; 
 import TurndownService from 'turndown';
 
 import Bio from '../components/bio';
@@ -22,14 +22,18 @@ const EditPost = props => {
 
   const [articleTags, setArticleTags] = useState("")
 
+  const articleBodyInputRef = useRef();
+
+  const handleArticleBodyOnChange = (e) => {
+    setArticleBody(e.target.value)
+    articleBodyInputRef.current.style.height = articleBodyInputRef.current.scrollHeight + "px"
+  }
 
   const handleUpdateArticle = () => {
-    var turndownService = new TurndownService()
-    console.log(turndownService.turndown(articleBody))
     updateArticle({
       ...article,
       title: articleTitle,
-      body: turndownService.turndown(articleBody),
+      body: articleBody,
       tags: articleTags,
       description: articleDescription
     })
@@ -51,6 +55,7 @@ const EditPost = props => {
         setArticleDescription(res.data.description)
         setArticleTitle(res.data.title)
         setArticleTags(res.data.tags)
+        articleBodyInputRef.current.style.height = articleBodyInputRef.current.scrollHeight + "px"
       })
     }
   }, [])
@@ -87,9 +92,10 @@ const EditPost = props => {
       </p> */}
 
       <textarea
+        className="PostBody"
         name="text"
-        oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
-        onChange={(e) => setArticleBody(e.target.value)}
+        ref={articleBodyInputRef}
+        onChange={handleArticleBodyOnChange}
         value={articleBody}
       ></textarea>
 
