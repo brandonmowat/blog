@@ -86,7 +86,13 @@ const EditPost = props => {
         {new Date(article.publishedDate || article.created).toDateString()}
       </p> */}
 
-      <ContentEditable html={articleBody} onChange={(e) => setArticleBody(e.target.value)} />
+      <textarea
+        name="text"
+        oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+        onChange={(e) => setArticleBody(e.target.value)}
+        value={articleBody}
+      ></textarea>
+
 
       {isLoggedIn &&
         <div className="editorToolbar" >
