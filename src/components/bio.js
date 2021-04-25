@@ -17,9 +17,10 @@ function Bio() {
               Written by
         {' '}
         <strong>Brandon Mowat</strong>
-        {' '}
-who lives and works at Ada in Toronto -- building useful things.
-        {' '}
+        <br></br>
+<span>building useful things at Ada, in the city of Toronto</span>
+<br></br>
+
         <a href="https://twitter.com/brandonmowat">
                 You should follow him on Twitter
         </a>

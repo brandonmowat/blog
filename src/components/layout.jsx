@@ -37,6 +37,7 @@ const Layout = props => {
             <img src="../../MM.png" />
           </Link>
         </div>
+        <h3 className="description">a blog written by Brandon Mowat</h3>
       </div>
     )
   } else {
@@ -56,6 +57,7 @@ const Layout = props => {
           </Link>
           <h3 className="description">a blog written by Brandon Mowat</h3>
         </div>
+
         <div className="header-content">
           {isLoggedIn && (
             <>
@@ -63,14 +65,16 @@ const Layout = props => {
             <button onClick={logout}>Log Out</button>
             </>
           )}
+
+          <div className="header-content__topics">
           <input
             className="SearchBar"
-            placeholder="Search for something..."
-            value={topicQuery} onChange={e => setTopicQuery(e.target.value)}/>
-          <div className="header-content-topics">
-            <button onClick={() => setTopicQuery("running")}>Running</button>
+            placeholder="Search for topic like:"
+            value={topicQuery} onChange={e => setTopicQuery(e.target.value)}/>            <button onClick={() => setTopicQuery("cities")}>Urban Life</button>
             <button onClick={() => setTopicQuery("cooking")}>Cooking</button>
-            <button onClick={() => setTopicQuery("ada")}>Ada</button>
+            <button onClick={() => setTopicQuery("software")}>Software</button>
+            <button onClick={() => setTopicQuery("management")}>Management</button>
+            <div></div>
           </div>
         </div>
       </div>

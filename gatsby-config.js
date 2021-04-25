@@ -51,8 +51,6 @@ module.exports = {
     //     ],
     //   },
     // },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
@@ -71,7 +69,6 @@ module.exports = {
         icon: 'content/assets/gatsby-icon.png',
       },
     },
-    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-typography',
       options: {

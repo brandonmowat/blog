@@ -1,7 +1,7 @@
 html,
 body {
   font-family: -apple-system, BlinkMacSystemFont;
-  background-color: #fffffa;
+  /* background-color: #fffffa; */
 }
 
 h1 {
@@ -40,6 +40,7 @@ header {
 header .blog-title {
   font-size: 24px;
   color: #333;
+  padding: 64px 0 0;
 }
 header .blog-title img {
   width: 300px;
@@ -50,9 +51,6 @@ header .description {
   margin-bottom: 0;
 }
 .header {
-  display: flex;
-  justify-content: space-between;
-  padding: 64px 0 0;
 }
 .header--bottom {
   align-self: flex-end;
@@ -62,30 +60,44 @@ header .description {
 }
 
 .header-content {
-  padding-top: 16px;
+  padding-top: 32px;
 }
 
-.header-content-topics {
+.header-content__topics {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 0;
 }
 
-.header-content-topics button {
-  margin: 4px;
-  font-size: 12px;
-  border-radius: 100px;
-  border: 2px solid #111;
-  padding: 2px 16px;
+.header-content__topics button {
+  transition: all ease 120ms;
+  opacity: 0.5;
+  display: flex;
   cursor: pointer;
-  background-color: #ddd;
+  font-size: 18px;
+  background: none;
+  border: none;
+}
+
+.header-content__topics button:hover {
+  opacity: 1;
 }
 
 .SearchBar {
-  border-radius: 100px;
-  border: 2px solid #111;
-  padding: 4px 8px;
-  font-size: 14px;
-  width: 100%;
-  max-width: 300px;
+  transition: all ease 120ms;
+  opacity: 0.5;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  padding: 4px 0px;
+  font-size: 18px;
+  max-width: 200px;
+  min-width: 100px;
+}
+.SearchBar:focus {
+  opacity: 1;
+  outline: none;
+  border-color: #35615d;
 }
 
 /* Footer */

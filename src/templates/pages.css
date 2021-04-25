@@ -20,6 +20,10 @@
   margin-bottom: 1rem;
 }
 
+.Post:hover h3 span {
+  color: #35615d;
+}
+
 .Post__date {
   margin: 4px 0;
 }
@@ -40,9 +44,16 @@
 }
 
 .LatestPostLabel {
-  background: #111;
+  background: #35615d;
   color: #fffffa;
   padding: 0 8px;
+}
+
+.link-cta {
+  text-decoration: none;
+  background: #35615d;
+  color: #fffffa;
+  padding: 4px 8px;
 }
 
 pre#contenteditable {

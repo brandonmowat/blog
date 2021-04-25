@@ -15,7 +15,7 @@ import '../components/layout.css';
 import './pages.css';
 
 
-const BlogIndex = props => {
+const AllPosts = props => {
   const [topicQuery, setTopicQuery] = useState("");
   const { pageContext } = props;
 
@@ -53,6 +53,8 @@ const BlogIndex = props => {
           'mochi',
         ]}
       />
+
+      <h1>Full Blog Archive</h1>
 
       {
         topicQuery ?
@@ -101,10 +103,10 @@ const MainArticleView = props => {
     </Link>
 
     <div className="row">
-      <span>Other Recent Posts</span>
+      <span>Older Posts</span>
     </div>
 
-    {restArticles.slice(0, 3).map(article => (
+    {restArticles.map(article => (
       <Link className="Post" to={getArticleLink(article)}>
         <div className="row">
           <div className="col-2">
@@ -119,8 +121,6 @@ const MainArticleView = props => {
         </div>
       </Link>
     ))}
-
-    <div style={{"textAlign": "center","marginTop":16}}><Link className="link-cta" to="/all">Full Archive</Link></div>
   </>);
 };
 
@@ -147,4 +147,4 @@ const SearchResults = props => {
   );
 }
 
-export default BlogIndex;
+export default AllPosts;
