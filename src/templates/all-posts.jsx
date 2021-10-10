@@ -72,7 +72,7 @@ const getArticleLink = (article) => {
     return `new-post?id=${article._id}`
   }
 
-  return `article/${article._id}`;
+  return `./article/${article._id}`;
 }
 
 const MainArticleView = props => {
