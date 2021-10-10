@@ -21,7 +21,7 @@
 }
 
 .Post:hover h3 span {
-  color: #35615d;
+  color: #4734f3;
 }
 
 .Post__date {
@@ -44,14 +44,14 @@
 }
 
 .LatestPostLabel {
-  background: #35615d;
+  background: #4734f3;
   color: #fffffa;
   padding: 0 8px;
 }
 
 .link-cta {
   text-decoration: none;
-  background: #35615d;
+  background: #4734f3;
   color: #fffffa;
   padding: 4px 8px;
 }

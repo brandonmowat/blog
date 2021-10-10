@@ -97,7 +97,7 @@ header .description {
 .SearchBar:focus {
   opacity: 1;
   outline: none;
-  border-color: #35615d;
+  border-color: #4734f3;
 }
 
 /* Footer */
