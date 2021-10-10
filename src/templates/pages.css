@@ -21,7 +21,7 @@
 }
 
 .Post:hover h3 span,
-.Post:hover h5 span {
+.Post:hover h5 {
   color: #4734f3;
 }
 
