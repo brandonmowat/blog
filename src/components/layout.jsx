@@ -17,7 +17,7 @@ const Layout = props => {
 
   const newPostHandler = () => {
     createArticle().then(res => {
-      console.log(res)
+      window.location.replace(`${window.location.origin}/new-post?id=${res.data._id}`)
     })
   }
 
