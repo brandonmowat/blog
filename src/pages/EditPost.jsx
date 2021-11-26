@@ -42,7 +42,12 @@ const EditPost = props => {
   const handleDeleteArticle = () => {
     const isConfirm = confirm(`Are you sure you want to delete the article: "${articleTitle}"?`);
 
-    if (isConfirm) deleteArticle(article)
+    // delete the article, then redirect back to index
+    if (isConfirm) {
+      deleteArticle(article).then(() => {
+        window.location.replace(window.location.origin)
+      })
+    }
   }
 
 
