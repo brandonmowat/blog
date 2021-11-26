@@ -70,7 +70,8 @@ const Layout = props => {
           <input
             className="SearchBar"
             placeholder="Search for topic like:"
-            value={topicQuery} onChange={e => setTopicQuery(e.target.value)}/>            <button onClick={() => setTopicQuery("cities")}>Urban Life</button>
+            value={topicQuery} onChange={e => setTopicQuery(e.target.value)}/>
+            <button onClick={() => setTopicQuery("cities")}>Urban Life</button>
             <button onClick={() => setTopicQuery("cooking")}>Cooking</button>
             <button onClick={() => setTopicQuery("software")}>Software</button>
             <button onClick={() => setTopicQuery("management")}>Management</button>
