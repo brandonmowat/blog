@@ -89,6 +89,9 @@ const Layout = props => {
   }
   return (
     <div>
+
+      <div className="TopBarAccent" />
+
       <header>{header}</header>
       <main className="container">{children}</main>
       <footer className="container">made from scratch</footer>

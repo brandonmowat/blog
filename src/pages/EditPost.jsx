@@ -107,10 +107,12 @@ const EditPost = props => {
 
 const BlogPostToolbar = props => {
   return (
-    <div className="editorToolbar" >
-      <button onClick={props.handleDeleteArticle}>Delete Article</button>
-      <button onClick={props.handleUpdateArticle}>{props?.article?.isPublished ? "Save" : "Save Draft" }</button>
-      <button onClick={props.handleTogglePublishArticle}>{props?.article?.isPublished ? "Unpublish Article" : "Publich Article"}</button>
+    <div className="BlogPostToolbar">
+      <div className="actions">
+        <button onClick={props.handleDeleteArticle}>Delete Article</button>
+        <button onClick={props.handleUpdateArticle}>{props?.article?.isPublished ? "Save" : "Save Draft" }</button>
+        <button className={`publishButton ${props?.article?.isPublished && "published"}`} onClick={props.handleTogglePublishArticle}>{props?.article?.isPublished ? "Unpublish Article" : "Publich Article"}</button>
+      </div>
     </div>
   )
 }

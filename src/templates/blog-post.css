@@ -72,19 +72,55 @@ textarea:focus {
   outline: none;
 }
 
-.editorToolbar {
+.BlogPostToolbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background-color: #eee;
-  padding: 8px;
+  height: 50px;
 }
 
-.editorToolbar button {
-  color: #4734f3;
-  background-color: #fff;
+.BlogPostToolbar .actions {
+  position: absolute;
+  top: -42px;
+  left: 0;
+  right: 0;
+  padding: 8px;
+  background-color: #4734f3;
+  transition: top 0.3s ease;
+}
+
+.BlogPostToolbar:hover .actions {
+  top: 0;
+}
+
+.BlogPostToolbar button {
+  color: #fff;
+  background-color: #4734f3;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  margin: 0 8px;
+}
+
+.BlogPostToolbar button:hover {
+  background-color: #fff;
+  color: #4734f3;
+}
+
+.BlogPostToolbar button.publishButton {
+  background-color: #f3d634;
+}
+
+.BlogPostToolbar button.publishButton:hover {
+  background-color: #0bba1c;
+}
+
+.BlogPostToolbar button.publishButton.published {
+  background-color: #0bba1c;
+}
+
+.BlogPostToolbar button.publishButton.published:hover {
+  color: #111;
+  background-color: #f3d634;
 }

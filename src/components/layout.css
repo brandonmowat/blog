@@ -1,7 +1,7 @@
 html,
 body {
   font-family: -apple-system, BlinkMacSystemFont;
-  /* background-color: #fffffa; */
+  background-color: #fff;
 }
 
 h1 {
@@ -28,6 +28,15 @@ h4 {
 
 h5 {
   font-weight: 300;
+}
+
+.TopBarAccent {
+  background-color: #4734f3;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 8px;
 }
 
 /* Header */
