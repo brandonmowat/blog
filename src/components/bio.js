@@ -21,9 +21,6 @@ function Bio() {
 <span>building useful things at Ada, in the city of Toronto</span>
 <br></br>
 
-        <a href="https://twitter.com/brandonmowat">
-                You should follow him on Twitter
-        </a>
       </p>
     </div>
   );
