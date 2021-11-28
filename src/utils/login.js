@@ -1,13 +1,15 @@
 const isLoggedIn = () => {
     if (typeof localStorage !== "undefined") {
-        return localStorage.getItem("token")
+        return !!localStorage.getItem("token")
     }
+    return false;
 }
 
-const logout = () => {
+const logout = () => new Promise((resolve, reject) => {
     if (typeof localStorage !== "undefined") {
-        localStorage.removeItem("token")
+        resolve(!!localStorage.removeItem("token"))
     }
-}
+    reject(false);
+})
 
 export {isLoggedIn, logout}

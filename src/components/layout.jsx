@@ -9,11 +9,17 @@ import "./layout.css"
 const Layout = props => {
   const { location, title, children, topicQuery, setTopicQuery } = props
 
-  const isLoggedIn = checkUserLoggedIn();
+  const [isLoggedIn, setIsLoggedIn] = useState(checkUserLoggedIn());
 
   const rootPath = `${__PATH_PREFIX__}/`
 
   let header
+
+  const onLogOut = () => {
+    logout().then(() => {
+      setIsLoggedIn(false);
+    })
+  }
 
   const newPostHandler = () => {
     createArticle().then(res => {
@@ -62,7 +68,7 @@ const Layout = props => {
           {isLoggedIn && (
             <>
             <button onClick={newPostHandler}>New Post</button>
-            <button onClick={logout}>Log Out</button>
+            <button onClick={onLogOut}>Log Out</button>
             </>
           )}
 
