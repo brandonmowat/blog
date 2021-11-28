@@ -19,9 +19,7 @@ const EditPost = props => {
   const [articleTitle, setArticleTitle] = useState("")
   const [articleDescription, setArticleDescription] = useState("")
   const [articleBody, setArticleBody] = useState("")
-
   const [articleTags, setArticleTags] = useState("")
-
   const articleBodyInputRef = useRef();
 
   const handleArticleBodyOnChange = (e) => {
@@ -50,6 +48,16 @@ const EditPost = props => {
     }
   }
 
+  const handleTogglePublishArticle = () => {
+    updateArticle({
+      ...article,
+      title: articleTitle,
+      body: articleBody,
+      tags: articleTags,
+      description: articleDescription,
+      isPublished: !article.isPublished
+    })
+  }
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -67,34 +75,9 @@ const EditPost = props => {
 
   return (
     <Layout location={props.location} title="Matcha & Mochi">
-      <h1
-        style={{
-          textAlign: 'center',
-        }}
-      >
-        <ContentEditable html={articleTitle} onChange={(e) => setArticleTitle(e.target.value)} />
-      </h1>
-      <h3
-        style={{
-          textAlign: 'center',
-        }}
-      >
-        <ContentEditable html={articleDescription} onChange={(e) => setArticleDescription(e.target.value)} />
-      </h3>
-      <p
-        style={{
-          textAlign: 'center',
-        }}
-      >
-        <ContentEditable html={articleTags} onChange={(e) => setArticleTags(e.target.value)} />
-      </p>
-      {/* <p
-        style={{
-          textAlign: 'center',
-        }}
-      >
-        {new Date(article.publishedDate || article.created).toDateString()}
-      </p> */}
+      <input className="PostInput h1" value={articleTitle} onChange={(e) => setArticleTitle(e.target.value)} placeholder="Title Goes Here" />
+      <input className="PostInput h3" value={articleDescription} onChange={(e) => setArticleDescription(e.target.value)} placeholder="Description goes here..." />
+      <input className="PostInput p" value={articleTags} onChange={(e) => setArticleTags(e.target.value)} placeholder="tags go here" />
 
       <textarea
         className="PostBody"
@@ -102,14 +85,17 @@ const EditPost = props => {
         ref={articleBodyInputRef}
         onChange={handleArticleBodyOnChange}
         value={articleBody}
+        placeholder="Make Your Masterpiece..."
       ></textarea>
 
 
       {isLoggedIn &&
-        <div className="editorToolbar" >
-          <button onClick={() => handleDeleteArticle()}>Delete Article</button>
-          <button onClick={() => handleUpdateArticle()}>save</button>
-        </div>
+        <BlogPostToolbar
+          article={article}
+          handleDeleteArticle={handleDeleteArticle}
+          handleUpdateArticle={handleUpdateArticle}
+          handleTogglePublishArticle={handleTogglePublishArticle}
+        />
       }
 
       <hr style={{}} />
@@ -119,41 +105,14 @@ const EditPost = props => {
   );
 };
 
-class ContentEditable extends React.Component {
-  ref = React.createRef()
-
-  render() {
-    return <pre id="contenteditable"
-      onInput={this.emitChange}
-      onBlur={this.emitChange}
-      contentEditable
-      ref={this.ref}
-      dangerouslySetInnerHTML={{ __html: this.props.html }}></pre>;
-  }
-
-  shouldComponentUpdate(nextProps) {
-    return nextProps.html !== this.ref.current.innerHTML;
-  }
-
-  componentDidUpdate() {
-    if (this.props.html !== this.ref.current.innerHTML) {
-      this.ref.current.innerHTML = this.props.html;
-    }
-  }
-
-  emitChange = () => {
-    console.log(this.ref)
-
-    var html = this.ref.current.innerHTML;
-    if (this.props.onChange && html !== this.lastHtml) {
-      this.props.onChange({
-        target: {
-          value: html
-        }
-      });
-    }
-    this.lastHtml = html;
-  }
-};
+const BlogPostToolbar = props => {
+  return (
+    <div className="editorToolbar" >
+      <button onClick={props.handleDeleteArticle}>Delete Article</button>
+      <button onClick={props.handleUpdateArticle}>{props?.article?.isPublished ? "Save" : "Save Draft" }</button>
+      <button onClick={props.handleTogglePublishArticle}>{props?.article?.isPublished ? "Unpublish Article" : "Publich Article"}</button>
+    </div>
+  )
+}
 
 export default EditPost;

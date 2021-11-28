@@ -30,6 +30,32 @@ pre {
   padding: 1em;
 }
 
+.PostInput {
+  text-align: center;
+  display: block;
+  border: none;
+  width: 100%;
+}
+
+.PostInput:focus {
+  outline: none;
+}
+
+.PostInput.h1 {
+  font-size: 2.5em;
+  color: #222;
+}
+
+.PostInput.h3,
+.PostInput.h4 {
+  color: #111;
+}
+
+.PostInput.h3 {
+  font-size: 1.5em;
+}
+
+
 textarea {
   background: none;
   border: none;
@@ -42,10 +68,23 @@ textarea {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+textarea:focus {
+  outline: none;
+}
+
 .editorToolbar {
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
   background-color: #eee;
+  padding: 8px;
+}
+
+.editorToolbar button {
+  color: #4734f3;
+  background-color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
