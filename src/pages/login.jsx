@@ -26,6 +26,7 @@ const login = (username, password, e) => {
   }).then(res => {
     if (res.status === 200) {
       localStorage.setItem("token", token)
+      window.location.replace(window.location.origin)
     }    
   })
 }
