@@ -46,11 +46,15 @@ exports.createPages = async ({ actions: { createPage } }) => {
     component: require.resolve('./src/pages/EditPost.jsx'),
   });
 
-  // // Create a page for each Pokémon.
   publishedArticles.forEach(article => {
     // console.log(article)
+
+    // Replace non-alpha characters with empty string
+    // then replace spaces with "-"
+    const title = article.title.replace(/[^\w\s]/gi, '').replace(/\s+/gi, "-")
+
     createPage({
-      path: `/article/${article._id}/`,
+      path: `/article/${title}-${article._id}/`,
       component: require.resolve('./src/templates/blog-post.js'),
       context: { article },
     });
