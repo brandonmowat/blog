@@ -72,7 +72,9 @@ const getArticleLink = (article) => {
     return `new-post?id=${article._id}`
   }
 
-  return `/article/${article._id}`;
+  const title = article.title.replace(/[^\w\s]/gi, '').replace(/\s+/gi, "-")
+
+  return `/article/${title}-${article._id}`;
 }
 
 const MainArticleView = props => {
