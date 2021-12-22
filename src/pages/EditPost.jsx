@@ -8,6 +8,7 @@ import SEO from '../components/seo';
 
 import { isLoggedIn as checkUserLoggedIn } from "../utils/login";
 import { getRawArticle, updateArticle, deleteArticle } from "../utils/article";
+import { handleSaveKeyboardShortcut } from "../utils/keyboardShortcut";
 
 import '../templates/blog-post.css';
 
@@ -70,6 +71,9 @@ const EditPost = props => {
         setArticleTags(res.data.tags)
         articleBodyInputRef.current.style.height = articleBodyInputRef.current.scrollHeight + "px"
       })
+      
+      // Add keyboard shortcut for saving
+      window.addEventListener("keydown", (e) => {handleSaveKeyboardShortcut(e, handleUpdateArticle)})
     }
   }, [])
 

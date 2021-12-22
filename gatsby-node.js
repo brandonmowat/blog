@@ -30,19 +30,19 @@ exports.createPages = async ({ actions: { createPage } }) => {
 
   // Create a page that lists all Articles
   createPage({
-    path: '/all',
+    path: '/all/',
     component: require.resolve('./src/templates/all-posts.jsx'),
     context: { articles: publishedArticles },
   });
 
   // Create a page for logging in
   createPage({
-    path: '/login',
+    path: '/login/',
     component: require.resolve('./src/pages/login.jsx'),
   });
 
   createPage({
-    path: '/new-post',
+    path: '/new-post/',
     component: require.resolve('./src/pages/EditPost.jsx'),
   });
 
