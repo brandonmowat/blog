@@ -15,35 +15,39 @@ import '../templates/blog-post.css';
 const EditPost = props => {
   const isLoggedIn = checkUserLoggedIn();
 
-  const [article, setArticle] = useState()
 
-  const [articleTitle, setArticleTitle] = useState("")
-  const [articleDescription, setArticleDescription] = useState("")
-  const [articleBody, setArticleBody] = useState("")
-  const [articleTags, setArticleTags] = useState("")
+  // Article State Handlers
+  const [article, _setArticle] = useState()
+  const myArticleStateRef = React.useRef(article);
+  const setArticle = data => {
+    myArticleStateRef.current = data;
+    _setArticle(data);
+  };
+
+  const handleSetArticleState = articleData => {
+    setArticle({
+      ...myArticleStateRef.current,
+      ...articleData
+    })
+  }
+
   const articleBodyInputRef = useRef();
 
   const handleArticleBodyOnChange = (e) => {
-    setArticleBody(e.target.value)
+    handleSetArticleState({ body: e.target.value })
     articleBodyInputRef.current.style.height = articleBodyInputRef.current.scrollHeight + "px"
   }
 
   const handleUpdateArticle = () => {
-    updateArticle({
-      ...article,
-      title: articleTitle,
-      body: articleBody,
-      tags: articleTags,
-      description: articleDescription
-    })
+    updateArticle(myArticleStateRef.current)
   }
 
   const handleDeleteArticle = () => {
-    const isConfirm = confirm(`Are you sure you want to delete the article: "${articleTitle}"?`);
+    const isConfirm = confirm(`Are you sure you want to delete the article: "${article?.title}"?`);
 
     // delete the article, then redirect back to index
     if (isConfirm) {
-      deleteArticle(article).then(() => {
+      deleteArticle(myArticleStateRef).then(() => {
         window.location.replace(window.location.origin)
       })
     }
@@ -51,11 +55,7 @@ const EditPost = props => {
 
   const handleTogglePublishArticle = () => {
     updateArticle({
-      ...article,
-      title: articleTitle,
-      body: articleBody,
-      tags: articleTags,
-      description: articleDescription,
+      ...myArticleStateRef,
       isPublished: !article.isPublished
     })
   }
@@ -64,31 +64,29 @@ const EditPost = props => {
     if (isLoggedIn) {
       var urlParams = new URLSearchParams(window.location.search);
       getRawArticle(urlParams.get("id")).then(res => {
-        setArticle(res.data)
-        setArticleBody(res.data.body)
-        setArticleDescription(res.data.description)
-        setArticleTitle(res.data.title)
-        setArticleTags(res.data.tags)
+        handleSetArticleState(res.data)
         articleBodyInputRef.current.style.height = articleBodyInputRef.current.scrollHeight + "px"
       })
-      
+
       // Add keyboard shortcut for saving
-      window.addEventListener("keydown", (e) => {handleSaveKeyboardShortcut(e, handleUpdateArticle)})
+      window.addEventListener("keydown", (e) => {
+        handleSaveKeyboardShortcut(e, handleUpdateArticle)
+      })
     }
   }, [])
 
   return (
     <Layout location={props.location} title="Matcha & Mochi">
-      <input className="PostInput h1" value={articleTitle} onChange={(e) => setArticleTitle(e.target.value)} placeholder="Title Goes Here" />
-      <input className="PostInput h3" value={articleDescription} onChange={(e) => setArticleDescription(e.target.value)} placeholder="Description goes here..." />
-      <input className="PostInput p" value={articleTags} onChange={(e) => setArticleTags(e.target.value)} placeholder="tags go here" />
+      <input className="PostInput h1" value={article?.title} onChange={(e) => handleSetArticleState({ title: e.target.value })} placeholder="Title Goes Here" />
+      <input className="PostInput h3" value={article?.description} onChange={(e) => handleSetArticleState({ description: e.target.value })} placeholder="Description goes here..." />
+      <input className="PostInput p" value={article?.tags} onChange={(e) => handleSetArticleState({ tags: e.target.value })} placeholder="tags go here" />
 
       <textarea
         className="PostBody"
         name="text"
         ref={articleBodyInputRef}
         onChange={handleArticleBodyOnChange}
-        value={articleBody}
+        value={article?.body}
         placeholder="Make Your Masterpiece..."
       ></textarea>
 
