@@ -55,7 +55,7 @@ const EditPost = props => {
 
   const handleTogglePublishArticle = () => {
     updateArticle({
-      ...myArticleStateRef,
+      ...myArticleStateRef.current,
       isPublished: !article.isPublished
     })
   }
