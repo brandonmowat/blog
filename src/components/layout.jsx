@@ -89,9 +89,6 @@ const Layout = props => {
   }
   return (
     <div>
-      {/* This is to connect to MailChimp. It should go in the <head> but i don't know where to do that yet lool */}
-      <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/e08b91b13d289ecf8346df79b/f97c44d12f7205ca24e7d36bb.js");</script>
-
       <div className="TopBarAccent" />
 
       <header>{header}</header>
