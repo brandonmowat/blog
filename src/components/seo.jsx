@@ -29,11 +29,6 @@ function SEO({
 
   const metaDescription = description || site.siteMetadata.description;
 
-  const s = document.createElement('script');
-  s.type = 'text/javascript';
-  s.async = true;
-  s.innerHTML = "document.write('This is output by document.write()!')";
-
   return (
     <Helmet
       htmlAttributes={{
@@ -81,7 +76,7 @@ function SEO({
       ]}
     >
       {/* This is to connect to MailChimp. */}
-      {s}
+      <script id="mcjs" src='../utils/mailchimpscript.js'></script>
     </Helmet>
   );
 }
