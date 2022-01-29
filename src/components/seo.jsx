@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
@@ -28,6 +28,11 @@ function SEO({
   );
 
   const metaDescription = description || site.siteMetadata.description;
+
+  const s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.innerHTML = "document.write('This is output by document.write()!')";
 
   return (
     <Helmet
@@ -76,7 +81,7 @@ function SEO({
       ]}
     >
       {/* This is to connect to MailChimp. */}
-      <script id="mcjs">{!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/e08b91b13d289ecf8346df79b/f97c44d12f7205ca24e7d36bb.js")}</script>
+      {s}
     </Helmet>
   );
 }
