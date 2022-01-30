@@ -76,7 +76,7 @@ function SEO({
       ]}
     >
       {/* This is to connect to MailChimp. */}
-      <script id="mcjs" src='../utils/mailchimpscript.js'></script>
+      <script id="mcjs" src='../utils/mailchimp-script.js'></script>
     </Helmet>
   );
 }
