@@ -5,6 +5,7 @@ import Bio from '../components/bio';
 
 import { createArticle } from "../utils/article";
 import { isLoggedIn as checkUserLoggedIn, logout} from "../utils/login";
+import { isSubscribed as MCisSubscribed } from "../utils/MailChimpSubscriber";
 
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 
@@ -14,7 +15,10 @@ const Layout = props => {
   const { location, title, children, topicQuery, setTopicQuery } = props
 
   const [isLoggedIn, setIsLoggedIn] = useState(checkUserLoggedIn());
-  const [subscriberEmail, setSubscriberEmail] = useState("");
+
+  // MailChimp Subscriber state stuff
+  const [isSubscribed, setIsSubscribed] = useState(MCisSubscribed);
+  const [subscriberEmailInput, setSubscriberEmailInput] = useState("");
 
   const rootPath = `${__PATH_PREFIX__}/`
 
@@ -35,9 +39,25 @@ const Layout = props => {
   // MailChimp Sign Up
   const _handleMCSignUp = async (e) => {
     e.preventDefault();
-    const result = await addToMailchimp(subscriberEmail)
-    // I recommend setting `result` to React state
-    // but you can do whatever you want
+    const mcRes = await addToMailchimp(subscriberEmailInput)
+
+    const {result, msg} = mcRes;
+
+    console.log(mcRes)
+
+    // Error subscribing, Already Subscribed
+    if (result === "error" && msg.includes("is already subscribed")) {
+      console.log("Looks like you're already subscribed!")
+      setIsSubscribed(true)
+      localStorage.setItem("subscriberEmail", subscriberEmailInput)
+    }
+
+    // Subscribing was successful!
+    if (result === "success") {
+      setIsSubscribed(true)
+      localStorage.setItem("subscriberEmail", subscriberEmailInput)
+    }
+
   }
 
   // We need to check the type of window because netlify is stupid
@@ -111,10 +131,16 @@ const Layout = props => {
 
         <div className="container">
         <form onSubmit={_handleMCSignUp} className="NewsletterSignUpForm">
-          <h4>💌 Stay Up To Date 💌</h4>
 
-          <input type="email" value={subscriberEmail} placeholder="Your email, please?" onChange={(e)=> {setSubscriberEmail(e.target.value)}} />
-          <button type="submit">Sign Me Up</button>
+          {isSubscribed && <h4>🎉Thanks for Subscribing! 🎉</h4>}
+
+          {!isSubscribed && <>
+            <h4>💌 Stay Up To Date 💌</h4>
+
+            <input type="email" value={subscriberEmailInput} placeholder="Your email, please?" onChange={(e)=> {setSubscriberEmailInput(e.target.value)}} />
+            <button type="submit">Sign Me Up</button>
+          </>}
+
         </form>
         
         <Bio/>
