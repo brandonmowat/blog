@@ -9,6 +9,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import mc from "../utils/mailchimp-script";
 
 function SEO({
   description, lang, meta, title, tags
@@ -76,7 +77,9 @@ function SEO({
       ]}
     >
       {/* This is to connect to MailChimp. */}
-      <script id="mcjs" src='../utils/mailchimp-script.js'></script>
+      <script id="mcjs">{`
+        !function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/e08b91b13d289ecf8346df79b/f97c44d12f7205ca24e7d36bb.js");
+      `}</script>   
     </Helmet>
   );
 }
