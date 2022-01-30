@@ -75,5 +75,12 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography',
       },
     },
+    {
+        resolve: 'gatsby-plugin-mailchimp',
+        options: {
+            endpoint: 'https://brandonmowat.us14.list-manage.com/subscribe/post?u=e08b91b13d289ecf8346df79b&amp;id=2aa380a984', // string; add your MC list endpoint here; see instructions below
+            timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
+        },
+    },
   ],
 };

@@ -4,12 +4,15 @@ import { Link } from "gatsby"
 import { createArticle } from "../utils/article";
 import { isLoggedIn as checkUserLoggedIn, logout} from "../utils/login";
 
+import addToMailchimp from 'gatsby-plugin-mailchimp'
+
 import "./layout.css"
 
 const Layout = props => {
   const { location, title, children, topicQuery, setTopicQuery } = props
 
   const [isLoggedIn, setIsLoggedIn] = useState(checkUserLoggedIn());
+  const [subscriberEmail, setSubscriberEmail] = useState("");
 
   const rootPath = `${__PATH_PREFIX__}/`
 
@@ -25,6 +28,14 @@ const Layout = props => {
     createArticle().then(res => {
       window.location.replace(`${window.location.origin}/new-post?id=${res.data._id}`)
     })
+  }
+
+  // MailChimp Sign Up
+  const _handleMCSignUp = async (e) => {
+    e.preventDefault();
+    const result = await addToMailchimp(subscriberEmail)
+    // I recommend setting `result` to React state
+    // but you can do whatever you want
   }
 
   // We need to check the type of window because netlify is stupid
@@ -93,6 +104,11 @@ const Layout = props => {
 
       <header>{header}</header>
       <main className="container">{children}</main>
+
+      <form onSubmit={_handleMCSignUp}>
+        <input type="email" value={subscriberEmail} onChange={(e)=> {setSubscriberEmail(e.target.value)}} />
+      </form>
+      
       <footer className="container">made from scratch</footer>
     </div>
   )
