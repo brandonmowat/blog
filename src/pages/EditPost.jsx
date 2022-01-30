@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'gatsby'; 
 import TurndownService from 'turndown';
 
-import Bio from '../components/bio';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
@@ -101,7 +100,6 @@ const EditPost = props => {
       }
 
       <hr style={{}} />
-      <Bio />
 
     </Layout>
   );

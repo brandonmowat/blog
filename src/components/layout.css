@@ -110,9 +110,52 @@ header .description {
 }
 
 /* Footer */
-footer {
+
+form.NewsletterSignUpForm {
   text-align: center;
-  margin: 32px auto !important;
+  color: #eee;
+}
+
+form.NewsletterSignUpForm h4,
+footer .Bio p {
+  color: #eee !important;
+}
+
+form.NewsletterSignUpForm input {
+  transition: all ease 120ms;
+  opacity: 0.5;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  padding: 4px 0px;
+  font-size: 18px;
+  width: 70%;
+  max-width: 300px;
+  min-width: 100px;
+  background: none;
+  color: #eee;
+  margin-right: 8px;
+}
+form.NewsletterSignUpForm input:focus {
+  opacity: 1;
+  outline: none;
+  border-color: #4734f3;
+}
+
+form.NewsletterSignUpForm button {
+  text-align: center;
+
+  background-color: #4734f3;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+footer {
+  background-color: #0e065d;
+  margin: 32px auto 0 !important;
+  padding: 32px;
+  color: #eee;
 }
 
 .container {

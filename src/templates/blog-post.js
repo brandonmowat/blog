@@ -50,7 +50,6 @@ const BlogPostTemplate = props => {
       <div dangerouslySetInnerHTML={{ __html: article.body }} />
 
       <hr style={{}} />
-      <Bio />
 
     </Layout>
   );

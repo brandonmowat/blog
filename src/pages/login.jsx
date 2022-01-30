@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import axios from "axios";
 import Img from 'gatsby-image';
 
-import Bio from '../components/bio';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
@@ -48,8 +47,6 @@ const Login = props => {
       </form>
 
 
-
-      <Bio />
     </Layout>
   );
 };

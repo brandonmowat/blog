@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 
+import Bio from '../components/bio';
+
 import { createArticle } from "../utils/article";
 import { isLoggedIn as checkUserLoggedIn, logout} from "../utils/login";
 
@@ -105,11 +107,23 @@ const Layout = props => {
       <header>{header}</header>
       <main className="container">{children}</main>
 
-      <form onSubmit={_handleMCSignUp}>
-        <input type="email" value={subscriberEmail} onChange={(e)=> {setSubscriberEmail(e.target.value)}} />
-      </form>
-      
-      <footer className="container">made from scratch</footer>
+      <footer>
+
+        <div className="container">
+        <form onSubmit={_handleMCSignUp} className="NewsletterSignUpForm">
+          <h4>💌 Stay Up To Date 💌</h4>
+
+          <input type="email" value={subscriberEmail} placeholder="Your email, please?" onChange={(e)=> {setSubscriberEmail(e.target.value)}} />
+          <button type="submit">Sign Me Up</button>
+        </form>
+        
+        <Bio/>
+
+        made from scratch
+
+        </div>
+        
+      </footer>
     </div>
   )
 }
