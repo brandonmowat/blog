@@ -84,7 +84,7 @@ const MainArticleView = props => {
   // Page size for pagination
   const pageSize = 4;
 
-  const [articlesPageNumber, setArticlesPageNumber] = useState(0);
+  const [articlesPageNumber, setArticlesPageNumber] = useState(1);
 
   const hasMoreArticlesToLoad = () => {
     return articlesPageNumber * pageSize < articles.length;
@@ -122,7 +122,7 @@ const MainArticleView = props => {
       <span>Other Recent Posts</span>
     </div>
 
-    {restArticles.slice(0, 3).map(article => (
+    {restArticles.slice(0, articlesPageNumber*3).map(article => (
       <Link className="Post" to={getArticleLink(article)}>
         <div className="row">
           <div className="col-2">
