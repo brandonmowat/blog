@@ -44,12 +44,14 @@ const BlogIndex = props => {
         title="All posts"
         keywords={[
           'blog',
-          'gatsby',
           'javascript',
           'react',
           'running',
           'matcha',
           'mochi',
+          'urban',
+          'urban planning',
+          'cities'
         ]}
       />
 
@@ -78,6 +80,22 @@ const MainArticleView = props => {
   const { articles } = props;
   const firstArticle = articles[0];
   const restArticles = articles.slice(1);
+  
+  // Page size for pagination
+  const pageSize = 4;
+
+  const [articlesPageNumber, setArticlesPageNumber] = useState(0);
+
+  const hasMoreArticlesToLoad = () => {
+    return articlesPageNumber * pageSize < articles.length;
+  }
+
+  /**
+   * Load Next page of articles for the reader
+   */
+  const loadNextPage = () => {
+    setArticlesPageNumber(articlesPageNumber += 1);
+  }
 
   return (<>
     <div className="row">
@@ -120,7 +138,11 @@ const MainArticleView = props => {
       </Link>
     ))}
 
-    <div style={{"textAlign": "center","marginTop":16}}><Link className="link-cta" to="/all">Full Archive</Link></div>
+    <div style={{"textAlign": "center","marginTop":16}}>
+      <button className="link-cta" onClick={loadNextPage} disabled={hasMoreArticlesToLoad()}>
+        {hasMoreArticlesToLoad() ? "See Earlier Posts" : "That's the end!"}
+      </button>
+    </div>
   </>);
 };
 
