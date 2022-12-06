@@ -18,7 +18,7 @@ blockquote {
 
 main p {
   font-size: 19px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: "Crimson Text", Georgia, 'Times New Roman', Times, serif;
 }
 
 main h2 {
@@ -73,7 +73,7 @@ textarea {
   overflow: hidden;
   padding-bottom: 32px;
   margin-bottom: 32px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: "Crimson Text", Georgia, 'Times New Roman', Times, serif;
 }
 
 textarea:focus {
