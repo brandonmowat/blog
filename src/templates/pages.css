@@ -45,12 +45,14 @@
 }
 
 .LatestPostLabel {
+  font-family: -apple-system, BlinkMacSystemFont;
   background: #4734f3;
   color: #fffffa;
   padding: 0 8px;
 }
 
 .link-cta {
+  font-family: -apple-system, BlinkMacSystemFont;
   text-decoration: none;
   background: #4734f3;
   color: #fffffa;
