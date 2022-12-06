@@ -139,7 +139,7 @@ const MainArticleView = props => {
     ))}
 
     <div style={{"textAlign": "center","marginTop":16}}>
-      <button className="link-cta" onClick={loadNextPage} disabled={hasMoreArticlesToLoad()}>
+      <button className="link-cta" onClick={loadNextPage} disabled={!hasMoreArticlesToLoad()}>
         {hasMoreArticlesToLoad() ? "See Earlier Posts" : "That's the end!"}
       </button>
     </div>
