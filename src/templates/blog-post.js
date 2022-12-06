@@ -47,7 +47,7 @@ const BlogPostTemplate = props => {
         {new Date(article.publishedDate || article.created).toDateString()}
       </p>
 
-      <div dangerouslySetInnerHTML={{ __html: article.body }} />
+      <div className="articleBodyContainer" dangerouslySetInnerHTML={{ __html: article.body }} />
 
       <hr style={{}} />
 
