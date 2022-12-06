@@ -94,7 +94,7 @@ const MainArticleView = props => {
    * Load Next page of articles for the reader
    */
   const loadNextPage = () => {
-    setArticlesPageNumber(articlesPageNumber += 1);
+    setArticlesPageNumber(articlesPageNumber + 1);
   }
 
   return (<>
