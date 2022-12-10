@@ -78,7 +78,7 @@ const EditPost = props => {
     <Layout location={props.location} title="Matcha & Mochi">
       <input className="PostInput h1" value={article?.title} onChange={(e) => handleSetArticleState({ title: e.target.value })} placeholder="Title Goes Here" />
       <input className="PostInput h3" value={article?.description} onChange={(e) => handleSetArticleState({ description: e.target.value })} placeholder="Description goes here..." />
-      <input className="PostInput date" type="date" value={article?.publishedDate} onChange={(e) => handleSetArticleState({publishedDate: e.target.value})} />
+      <input className="PostInput date" type="datetime-local" value={article?.publishedDate} onChange={(e) => handleSetArticleState({publishedDate: e.target.value})} />
       <input className="PostInput p" value={article?.tags} onChange={(e) => handleSetArticleState({ tags: e.target.value })} placeholder="tags go here" />
 
       <textarea
