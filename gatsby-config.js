@@ -64,7 +64,7 @@ module.exports = {
         short_name: 'Brandon',
         start_url: '/',
         background_color: '#ffffff',
-        theme_color: '#4734f3',
+        theme_color: '#3e652f',
         display: 'minimal-ui',
         icon: 'content/assets/mochi.png',
       },

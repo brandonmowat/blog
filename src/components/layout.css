@@ -44,7 +44,7 @@ button {
 }
 
 .TopBarAccent {
-  background-color: #4734f3;
+  background-color: #3e652f;
   position: absolute;
   top: 0;
   right: 0;
@@ -119,7 +119,7 @@ header .description {
 .SearchBar:focus {
   opacity: 1;
   outline: none;
-  border-color: #4734f3;
+  border-color: #3e652f;
 }
 
 /* Footer */
@@ -151,13 +151,13 @@ form.NewsletterSignUpForm input {
 form.NewsletterSignUpForm input:focus {
   opacity: 1;
   outline: none;
-  border-color: #4734f3;
+  border-color: #3e652f;
 }
 
 form.NewsletterSignUpForm button {
   text-align: center;
 
-  background-color: #4734f3;
+  background-color: #3e652f;
   border: none;
   color: #fff;
   cursor: pointer;
