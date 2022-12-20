@@ -43,12 +43,13 @@ pre {
 }
 
 .image-gallery-sm > p {
-  margin: 0 auto;  
+  margin: 0 auto;
 }
 
 .image-gallery-sm img {
   max-width: 450px;
   max-height: 450px;
+  margin: 0 auto;
 }
 
 /* Editing Styles */
