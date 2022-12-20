@@ -42,10 +42,13 @@ pre {
   width: 100%;
 }
 
+.image-gallery-s > * {
+  margin: 0 auto;  
+}
+
 .image-gallery-sm img {
   max-width: 450px;
   max-height: 450px;
-  margin: 0 auto;
 }
 
 /* Editing Styles */
