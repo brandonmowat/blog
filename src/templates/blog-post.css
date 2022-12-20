@@ -43,7 +43,7 @@ pre {
 }
 
 .image-gallery-sm > p {
-  margin: 0 auto;
+  margin: auto auto;
 }
 
 .image-gallery-sm img {
