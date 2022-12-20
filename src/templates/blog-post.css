@@ -38,8 +38,11 @@ pre {
   padding: 1em;
 }
 
+.image-gallery-sm {
+  width: 100%;
+}
+
 .image-gallery-sm img {
-  width: 80%;
   max-width: 450px;
   max-height: 450px;
   margin: 0 auto;
