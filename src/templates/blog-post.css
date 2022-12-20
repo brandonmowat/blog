@@ -38,6 +38,13 @@ pre {
   padding: 1em;
 }
 
+.image-gallery-sm img {
+  max-width: 450px;
+  max-height: 450px;
+}
+
+/* Editing Styles */
+
 .PostInput {
   text-align: center;
   display: block;
