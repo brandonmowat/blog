@@ -46,7 +46,7 @@ const EditPost = props => {
 
     // delete the article, then redirect back to index
     if (isConfirm) {
-      deleteArticle(myArticleStateRef).then(() => {
+      deleteArticle(article).then(() => {
         window.location.replace(window.location.origin)
       })
     }
